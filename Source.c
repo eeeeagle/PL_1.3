@@ -2,7 +2,7 @@
 #include <conio.h>
 #include <Windows.h>
 #include <string.h>
-char alphabet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZàáâãäå¸æçèéêëìíîïðñòóôõö÷øùúûüýþÿÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞß";
+char alphabet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZÃ Ã¡Ã¢Ã£Ã¤Ã¥Â¸Ã¦Ã§Ã¨Ã©ÃªÃ«Ã¬Ã­Ã®Ã¯Ã°Ã±Ã²Ã³Ã´ÃµÃ¶Ã·Ã¸Ã¹ÃºÃ»Ã¼Ã½Ã¾Ã¿Ã€ÃÃ‚ÃƒÃ„Ã…Â¨Ã†Ã‡ÃˆÃ‰ÃŠÃ‹ÃŒÃÃŽÃÃÃ‘Ã’Ã“Ã”Ã•Ã–Ã—Ã˜Ã™ÃšÃ›ÃœÃÃžÃŸ";
 
 void clear(char *original, char *edited) 
 {
@@ -14,12 +14,12 @@ void output(bool check, char original[512], char edited[512])
 {
 	system("cls");
 	if (check == false)
-		printf("Â ââåäåíîì òåêñòå íåò çàäàííîé áóêâû.\n========================\n\n");
-	printf("Èñõîäíûé òåêñò:\n\n");
+		printf("Ã‚ Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®Ã¬ Ã²Ã¥ÃªÃ±Ã²Ã¥ Ã­Ã¥Ã² Ã§Ã Ã¤Ã Ã­Ã­Ã®Ã© Ã¡Ã³ÃªÃ¢Ã».\n========================\n\n");
+	printf("ÃˆÃ±ÃµÃ®Ã¤Ã­Ã»Ã© Ã²Ã¥ÃªÃ±Ã²:\n\n");
 	puts(original);
 	if (check) 
 	{
-		printf("========================\n\nÈçìåí¸ííûé òåêñò:\n\n");
+		printf("========================\n\nÃˆÃ§Ã¬Ã¥Ã­Â¸Ã­Ã­Ã»Ã© Ã²Ã¥ÃªÃ±Ã²:\n\n");
 		puts(edited);
 	}
 	printf("\n\n\n");
@@ -30,7 +30,7 @@ void output(bool check, char original[512], char edited[512])
 bool ending() 
 {
 		system("cls");
-		printf("Äëÿ ïðîäîëæåíèÿ ðàáîòû íàæìèòå ëþáóþ êëàâèøó. Äëÿ çàâåðøåíèÿ - ESC.");
+		printf("Ã„Ã«Ã¿ Ã¯Ã°Ã®Ã¤Ã®Ã«Ã¦Ã¥Ã­Ã¨Ã¿ Ã°Ã Ã¡Ã®Ã²Ã» Ã­Ã Ã¦Ã¬Ã¨Ã²Ã¥ Ã«Ã¾Ã¡Ã³Ã¾ ÃªÃ«Ã Ã¢Ã¨Ã¸Ã³. Ã„Ã«Ã¿ Ã§Ã Ã¢Ã¥Ã°Ã¸Ã¥Ã­Ã¨Ã¿ - ESC.");
 		return (27 != _getch());
 }
 
@@ -42,7 +42,7 @@ bool is_alpha(char symbol)
 int to_lower(int s) 
 {
 	if (s == -88) 
-		return -72; // äëÿ ¨ è ¸
+		return -72; // Ã¤Ã«Ã¿ Â¨ Ã¨ Â¸
 	if ((s >= 65 && s <= 90) || (s >= -64 && s <= -33))
 		return s + 32;
 	else
@@ -80,14 +80,14 @@ char change_sym()
 {
 	char newSym;
 	getchar();
-	printf("Îáíàðóæåíà ââåäåíàÿ áóêâà. Ââåäèòå íîâóþ äëÿ å¸ çàìåíû: ");
+	printf("ÃŽÃ¡Ã­Ã Ã°Ã³Ã¦Ã¥Ã­Ã  Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã Ã¿ Ã¡Ã³ÃªÃ¢Ã . Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã®Ã¢Ã³Ã¾ Ã¤Ã«Ã¿ Ã¥Â¸ Ã§Ã Ã¬Ã¥Ã­Ã»: ");
 	do 
 	{
 		scanf_s("%c", &newSym, 1);
 		if (is_alpha(newSym) == false) 
 		{
 			system("cls");
-			printf("Ââåñòè ìîæíî òîëüêî áóêâó. Ïîâòîðèòå ââîä: ");
+			printf("Ã‚Ã¢Ã¥Ã±Ã²Ã¨ Ã¬Ã®Ã¦Ã­Ã® Ã²Ã®Ã«Ã¼ÃªÃ® Ã¡Ã³ÃªÃ¢Ã³. ÃÃ®Ã¢Ã²Ã®Ã°Ã¨Ã²Ã¥ Ã¢Ã¢Ã®Ã¤: ");
 		}
 	} while (is_alpha(newSym) == false);
 	return newSym;
@@ -148,7 +148,7 @@ int main()
 		char original[512], edited[512], sym;
 		system("cls");
 		clear(original, edited);
-		printf("Ââåäèòå òåêñò â âèäå îäíîé èëè íåñêîëüêèõ ñòðîê:\n(äëÿ ïðåêðàùåíèÿ ââîäà îñòàâüòå ïóñòîå ïîëå ââîäà)\n\n");
+		printf("Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã²Ã¥ÃªÃ±Ã² Ã¢ Ã¢Ã¨Ã¤Ã¥ Ã®Ã¤Ã­Ã®Ã© Ã¨Ã«Ã¨ Ã­Ã¥Ã±ÃªÃ®Ã«Ã¼ÃªÃ¨Ãµ Ã±Ã²Ã°Ã®Ãª:\n(Ã¤Ã«Ã¿ Ã¯Ã°Ã¥ÃªÃ°Ã Ã¹Ã¥Ã­Ã¨Ã¿ Ã¢Ã¢Ã®Ã¤Ã  Ã®Ã±Ã²Ã Ã¢Ã¼Ã²Ã¥ Ã¯Ã³Ã±Ã²Ã®Ã¥ Ã¯Ã®Ã«Ã¥ Ã¢Ã¢Ã®Ã¤Ã )\n\n");
 		char string[100];
 		do
 		{
@@ -157,14 +157,14 @@ int main()
 			strcat_s(original, 512, "\n");
 		} while (string[0]);
 		system("cls");
-		printf("Ââåäèòå ëþáóþ áóêâó: ");
+		printf("Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã«Ã¾Ã¡Ã³Ã¾ Ã¡Ã³ÃªÃ¢Ã³: ");
 		do
 		{
 			scanf_s("%c", &sym, 1);
 			if (is_alpha(sym) == false)
 			{
 				system("cls");
-				printf("Ââåñòè ìîæíî òîëüêî áóêâó. Ïîâòîðèòå ââîä: ");
+				printf("Ã‚Ã¢Ã¥Ã±Ã²Ã¨ Ã¬Ã®Ã¦Ã­Ã® Ã²Ã®Ã«Ã¼ÃªÃ® Ã¡Ã³ÃªÃ¢Ã³. ÃÃ®Ã¢Ã²Ã®Ã°Ã¨Ã²Ã¥ Ã¢Ã¢Ã®Ã¤: ");
 			}
 		} while (is_alpha(sym) == false);
 		strcpy_s(edited, original);
